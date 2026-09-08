@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohanned Mohamed Galal — AI & Data Science Portfolio">
+  <title>Mohanned Mohamed Galal | AI & Data Science Portfolio</title>
+  <style>
+    :root{
+      --bg:#f6f8f7; --surface:#ffffff; --ink:#122033; --muted:#64748b;
+      --primary:#49d8bd; --primary-dark:#159b87; --navy:#0b1b2b;
+      --line:#e3e9e7; --shadow:0 18px 50px rgba(14,35,50,.08);
+      --radius:22px; --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max),92%);margin:auto}
+    nav{position:sticky;top:0;z-index:20;background:rgba(11,27,43,.94);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#65ead1,#2ba995);color:#092235;font-weight:900}
+    .brand small{display:block;color:#b8c8d5;font-weight:500;font-size:11px}
+    .links{display:flex;gap:25px;font-size:14px}
+    .links a{color:#dbe5eb}.links a:hover{color:var(--primary)}
+    .menu{display:none;background:none;border:0;color:#fff;font-size:25px}
+    .hero{background:radial-gradient(circle at 85% 15%,#21425e 0,#11283c 30%,#091827 70%);color:#fff;padding:95px 0 90px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+    .eyebrow{color:var(--primary);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+    h1{font-size:clamp(44px,6vw,76px);line-height:1.03;margin:14px 0 18px;letter-spacing:-2px}
+    .hero h2{font-size:clamp(20px,2.5vw,30px);color:#8be8d7;margin-bottom:18px}
+    .hero p{max-width:650px;color:#c6d4de;font-size:18px}
+    .buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 20px;border-radius:999px;border:1px solid #6d8494;font-weight:750}
+    .btn.primary{background:var(--primary);border-color:var(--primary);color:#082332}
+    .visual{min-height:360px;border:1px solid rgba(255,255,255,.12);border-radius:32px;background:linear-gradient(145deg,rgba(89,222,197,.13),rgba(255,255,255,.03));display:grid;place-items:center;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.2)}
+    .visual-card{width:78%;padding:28px;border-radius:25px;background:#10283c;border:1px solid rgba(255,255,255,.1);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9feadb;font-size:13px;line-height:2}
+    section{padding:82px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:34px}
+    .section-head h2{font-size:34px;letter-spacing:-.7px}
+    .section-head p{color:var(--muted);max-width:560px}
+    .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:stretch}
+    .profile-card,.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .profile-card{padding:34px;display:flex;align-items:center;justify-content:center;min-height:300px;background:linear-gradient(145deg,#e8f5f2,#fff)}
+    .initials{width:180px;height:180px;border-radius:45% 55% 55% 45%;display:grid;place-items:center;background:linear-gradient(145deg,#17364b,#49d8bd);font-size:54px;font-weight:900;color:#fff;box-shadow:0 25px 50px rgba(20,150,130,.2)}
+    .about-copy{padding:10px 0}
+    .about-copy p{color:#526275;margin-bottom:17px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:24px}
+    .info{padding:17px;border-radius:17px;background:#f2f7f6;border:1px solid #e3eeeb}
+    .info strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--primary-dark)}
+    .info span{font-weight:700}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .skill{padding:25px}
+    .skill h3{margin-bottom:10px}.skill p{color:var(--muted);font-size:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+    .tag{font-size:12px;padding:5px 9px;border-radius:999px;background:#eaf7f4;color:#167c6d;font-weight:700}
+    .projects{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+    .project{overflow:hidden}
+    .project-top{height:125px;background:linear-gradient(135deg,#10273a,#1c4657);display:grid;place-items:center;color:#69e4cc;font-size:34px;font-weight:900}
+    .project-body{padding:21px}.project-body h3{font-size:17px;margin-bottom:8px}.project-body p{font-size:13px;color:var(--muted)}
+    .timeline{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .timeline .card{padding:28px}
+    .item{padding-left:22px;border-left:3px solid var(--primary);margin:18px 0}
+    .item h3{font-size:17px}.item p{color:var(--muted);font-size:14px}
+    .certs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .cert{padding:23px}.cert h3{font-size:17px}.cert p{color:var(--muted);font-size:14px}
+    .languages{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+    .lang{padding:17px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .lang strong{display:block}.lang span{font-size:13px;color:var(--muted)}
+    footer{background:var(--navy);color:#fff;padding:55px 0 28px}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:center}
+    footer p{color:#afbfca;max-width:560px}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}.social{padding:11px 17px;border:1px solid #506879;border-radius:999px}
+    .copyright{border-top:1px solid #263d4d;margin-top:35px;padding-top:20px;color:#8194a2;font-size:12px}
+    @media(max-width:760px){
+      .links.open{display:flex;position:absolute;left:4%;right:4%;top:68px;flex-direction:column;gap:0;padding:10px;background:#0b1b2b;border:1px solid rgba(255,255,255,.1);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+      .links.open a{padding:12px 10px}
+    }
+    @media(max-width:1050px){.projects{grid-template-columns:repeat(3,1fr)}.skills{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){
+      .links{display:none}.menu{display:block}.hero-grid,.about,.timeline{grid-template-columns:1fr}.hero{padding:65px 0}
+      .visual{min-height:270px}.projects,.certs{grid-template-columns:1fr 1fr}.languages{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:520px){
+      section{padding:60px 0}.skills,.projects,.certs,.languages,.info-grid{grid-template-columns:1fr}
+      h1{font-size:48px}.hero p{font-size:16px}.footer-grid{flex-direction:column;align-items:flex-start}.section-head{display:block}.section-head h2{margin-bottom:8px}
+    }
+  
+    .profile-photo{width:150px;height:150px;object-fit:cover;border-radius:50%;display:block;margin:0 0 22px;border:3px solid rgba(255,255,255,.8);box-shadow:0 12px 35px rgba(0,0,0,.22)}
+    @media(max-width:760px){.profile-photo{width:120px;height:120px;margin-bottom:18px}}
+
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#home"><div class="logo">MG</div><div>Mohanned Mohamed Galal<small>AI & Data Science</small></div></a>
+    <div class="links" id="navLinks">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#education">Education</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">AI • Data Science • Technology</div>
+      <h1>Mohanned<br>Galal</h1>
+      <h2>AI & Data Science</h2>
+      <p>Passionate about technology, data, problem solving, and building practical digital solutions. Developing my skills toward becoming a professional AI Engineer.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">Explore My Projects</a>
+        <a class="btn" href="Mohanned_Galal_CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="visual-card">
+        <div class="code">while (learning) {<br>&nbsp;&nbsp;build();<br>&nbsp;&nbsp;solveProblems();<br>&nbsp;&nbsp;keepGrowing();<br>}</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="container">
+    <div class="section-head"><div><h2>About Me</h2></div><p>A technology-focused portfolio built around programming, data, AI, problem solving, and practical projects.</p></div>
+    <div class="about">
+      <div class="profile-card"><div class="initials">MG</div></div>
+      <div class="about-copy">
+        <p>I’m <b>Mohanned Mohamed Galal</b>, focused on <b>Data Science & AI</b> and building a strong foundation in programming, analytics, and intelligent technologies.</p>
+        <p>I enjoy learning by building. My projects and training have helped me practice C++, digital systems, web technologies, logical thinking, and problem solving. I’m also expanding my knowledge through professional training and online courses.</p>
+        <p>My long-term goal is to become a professional <b>AI Engineer</b> and create intelligent solutions that make a real impact.</p>
+        <div class="info-grid">
+          <div class="info"><strong>Focus</strong><span>AI & Data Science</span></div>
+          <div class="info"><strong>Core</strong><span>Programming & Analytics</span></div>
+          <div class="info"><strong>Interests</strong><span>Machine Learning & AI</span></div>
+          <div class="info"><strong>Goal</strong><span>AI Engineer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head"><div><h2>Skills</h2></div><p>A growing toolkit combining technical foundations with creativity and people skills.</p></div>
+    <div class="skills">
+      <div class="card skill"><h3>Programming</h3><p>Core programming and web fundamentals.</p><div class="tags"><span class="tag">C++</span><span class="tag">Python</span><span class="tag">HTML</span><span class="tag">OOP</span></div></div>
+      <div class="card skill"><h3>Data & AI</h3><p>Building foundations for future AI and data projects.</p><div class="tags"><span class="tag">Data Science</span><span class="tag">Data Analytics</span><span class="tag">Machine Learning</span><span class="tag">NumPy</span><span class="tag">Pandas</span></div></div>
+      <div class="card skill"><h3>Tools & Tech</h3><p>Practical tools used during study and training.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Word</span><span class="tag">Linux</span><span class="tag">VirtualBox</span></div></div>
+      <div class="card skill"><h3>Soft Skills</h3><p>Creative and collaborative strengths.</p><div class="tags"><span class="tag">Leadership</span><span class="tag">Creativity</span><span class="tag">Problem Solving</span><span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Writing</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-head"><div><h2>Selected Projects</h2></div><p>Academic and personal projects demonstrating programming, logic, hardware, and web development.</p></div>
+    <div class="projects">
+      <article class="card project"><div class="project-top">∫</div><div class="project-body"><h3>Trapezoidal Rule Calculator</h3><p>C++ program that calculates a definite integral using the trapezoidal rule.</p><div class="tags"><span class="tag">C++</span><span class="tag">Math</span></div></div></article>
+      <article class="card project"><div class="project-top">☼</div><div class="project-body"><h3>Automatic Light Sensor</h3><p>Digital systems project where the light responds automatically to the surrounding light condition.</p><div class="tags"><span class="tag">Digital Systems</span><span class="tag">Sensors</span></div></div></article>
+      <article class="card project"><div class="project-top">⌨</div><div class="project-body"><h3>C++ Calculator</h3><p>A functional calculator developed in C++ to practice programming fundamentals and logic.</p><div class="tags"><span class="tag">C++</span><span class="tag">OOP</span></div></div></article>
+      <article class="card project"><div class="project-top">XO</div><div class="project-body"><h3>Tic-Tac-Toe</h3><p>A classic Tic-Tac-Toe game implemented in C++, focused on conditions, loops, and game logic.</p><div class="tags"><span class="tag">C++</span><span class="tag">Game Logic</span></div></div></article>
+      <article class="card project"><div class="project-top">▰</div><div class="project-body"><h3>Dinosaur Game</h3><p>A web-based dinosaur game inspired by the offline browser experience.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-head"><div><h2>Education & Training</h2></div><p>Professional development, training, and hands-on learning.</p></div>
+    <div class="timeline">
+      <div class="card">
+        <div class="item"><h3>October 6 University</h3><p><b>Computer Science</b> — Data Science & AI Track<br>October 6 University</p></div>
+        <div class="item"><h3>Digital Egypt Pioneers Initiative (DEPI)</h3><p><b>AI & Data Science Track</b><br>AI & Data Science professional training.</p></div>
+      </div>
+      <div class="card">
+        <div class="item"><h3>MaharaTech / ITI Training</h3><p>Currently building practical technology skills through online training and courses.</p></div>
+        <div class="item"><h3>Self-Learning</h3><p>Continuously studying through platforms such as Udemy and Coursera. Additional certificates will be added as courses are completed.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="container">
+    <div class="section-head"><div><h2>Certificates</h2></div><p>Completed learning milestones, with more currently in progress.</p></div>
+    <div class="certs">
+      <div class="card cert"><h3>MaharaTech Certificates</h3><p>GIS<br>Introduction to Internet of Things (IoT)</p><div class="tags"><span class="tag">MaharaTech</span></div></div>
+      <div class="card cert"><h3>HP LIFE Certificates</h3><p>Introduction to Cybersecurity<br>Data Science & Data Analytics<br>Social Media Marketing</p><div class="tags"><span class="tag">HP LIFE</span></div></div>
+      <div class="card cert"><h3>Certificates in Progress</h3><p>Additional courses on Udemy and Coursera are currently in progress. New certificates can be added here anytime.</p><div class="tags"><span class="tag">Updating</span></div></div>
+    </div>
+    <div style="margin-top:40px"><h3>Languages</h3><div class="languages">
+      <div class="lang"><strong>Arabic</strong><span>Native</span></div>
+      <div class="lang"><strong>English</strong><span>C1</span></div>
+      <div class="lang"><strong>French</strong><span>A2</span></div>
+      <div class="lang"><strong>Turkish</strong><span>A2</span></div>
+    </div></div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h2>Let’s Build Something Great.</h2><p>Open to learning opportunities, collaborations, and meaningful projects in technology, AI, and data.</p></div>
+      <div class="socials">
+        <a class="social" href="https://www.linkedin.com/in/mohanned-galal-0a018b415" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="social" href="https://wa.me/201159495931" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="social" href="mailto:mohannedelzainy@gmail.com">Email Me</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Mohanned Mohamed Galal. Built with curiosity, creativity, and code.</div>
+  </div>
+</footer>
+</body>
+</html>
